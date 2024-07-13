@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'hirenowapp',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +50,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 👇 Add this line here
+    'corsheaders.middleware.CorsMiddleware',
+    # Add above line just before this line 👇
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'hirenow.urls'
@@ -66,6 +73,9 @@ TEMPLATES = [
         },
     },
 ]
+# 👇 Add this line here
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 WSGI_APPLICATION = 'hirenow.wsgi.application'
 
