@@ -3,9 +3,11 @@ import axios from 'axios';
 
 function HelloWorld() {
   const [message, setMessage] = useState('');
+  const apiUrl = process.env.HIRENOW_APP_API_URL;
+
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/hello-world/')
+    axios.get(apiUrl)
       .then(response => {
         setMessage(response.data.message);
       })
@@ -16,7 +18,7 @@ function HelloWorld() {
 
   return (
     <div>
-      <h1>Hello, World!</h1>
+      <h1>Hire Now Application</h1>
       <p>{message}</p>
     </div>
   );

@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config(); // Load environment variables from .env file
 
 module.exports = {
   entry: './src/pages/home/index.js',
@@ -35,6 +37,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/pages/home/index.html', // Ensure this path is correct
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        HIRENOW_APP_API_URL: JSON.stringify(process.env.HIRENOW_APP_API_URL),
+        // Add other environment variables here if needed
+      },
     }),
   ],
 };
