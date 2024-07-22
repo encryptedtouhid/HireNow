@@ -18,8 +18,7 @@ function HelloWorld() {
 
   return (
     <div>
-      <h1>Hire Now Application</h1>
-      <p>{message}</p>
+      <p>Status : {message}</p>
     </div>
   );
 }
